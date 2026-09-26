@@ -1,0 +1,19 @@
+{
+  "name": "yuewen-export",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "只读导出 Windows 作家助手本地小说、章节和原始数据快照。",
+  "author": {
+    "name": "yuewen-export contributors"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "作家助手小说导出",
+    "shortDescription": "导出逐章文本、全文与原始数据备份",
+    "longDescription": "读取 Windows 作家助手本机已保存章节，每次生成独立快照，包含逐章 TXT、全文 TXT、原始 JSON 和文件校验清单。",
+    "developerName": "yuewen-export contributors",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": ["列出作家助手本地的小说", "导出作家助手里的《示例小说》"]
+  }
+}

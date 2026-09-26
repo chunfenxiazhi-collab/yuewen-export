@@ -1,0 +1,21 @@
+# Local manuscripts, database files, credentials and exports
+novel-exports/
+output/
+exports/
+profiles/
+logs/
+*.db
+*.db-*
+*.sqlite*
+*.log
+*.txt
+raw.json
+manifest.json
+.env
+.env.*
+*.pem
+*.key
+*.zip
+node_modules/
+.DS_Store
+Thumbs.db
