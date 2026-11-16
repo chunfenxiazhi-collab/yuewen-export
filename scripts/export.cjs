@@ -119,5 +119,5 @@ async function main(argv) {
     console.log(JSON.stringify(writeExport(book, rows, path.resolve(options.out), {profile:book.profile, bindingVersion:path.basename(path.dirname(path.dirname(path.dirname(path.dirname(path.dirname(path.dirname(path.dirname(bindingFile))))))))}), null, 2));
   } finally { if (db) await dbApi.close(db); }
 }
-module.exports = {safeName, parse, writeExport};
+module.exports = {safeName, parse, writeExport, findBinding};
 if (require.main === module) main(process.argv.slice(2)).catch(e => { console.error(e.message); process.exitCode = 1; });

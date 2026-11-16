@@ -6,6 +6,8 @@
 
 从本仓库的 Code → Download ZIP 下载并解压，或克隆仓库。在项目目录打开 PowerShell，执行下面的命令。建议使用 Node.js 22 或更新版本，确保 `node --version` 可以运行。无需 npm install。
 
+也可从 [Releases](https://github.com/chunfenxiazhi-collab/yuewen-export/releases) 下载带版本号的插件 ZIP，解压后按相同方式使用。版本变更见 [CHANGELOG.md](CHANGELOG.md)。
+
 Codex 本地技能插件，读取 Windows x64 作家助手（YuewenEdit）已保存的本地章节。需要 Node.js；复用本机作家助手的 SQLCipher 模块，不分发应用原生二进制。
 
 ```powershell
@@ -27,7 +29,11 @@ node ./scripts/export.cjs --title '示例小说' --out './novel-exports'
 
 ## 验证与限制
 
-当前已验证 Windows x64 作家助手 5.20.0 的本地数据库读取。其他版本尚未保证兼容，不支持 macOS/Linux 上的真实数据库读取。CI 仅使用虚构文本验证导出逻辑，不包含或访问真实账户数据。
+已实机验证 Windows x64 作家助手 5.20.0 和 5.25.0 的本地数据库读取。5.25.0 在 Node.js 24.16.0 下验证了原生模块加载、作品列表、章节导出、源数据库逐条比对、导出文件 SHA-256 校验，以及读取前后数据库文件不变。缺少纯文本字段的记录仍会明确告警并保留原始字段。
+
+脚本按数字版本顺序选择含有目标 SQLCipher 模块的最新安装资源目录；若该目录缺少模块，会继续查找旧目录。因此导出记录中的 `source.bindingVersion` 表示实际使用的资源目录，不代表正在运行的应用版本。多版本发现逻辑使用虚构的 5.9、5.20、5.25 安装目录测试。
+
+其他作家助手版本尚未保证兼容，不支持 macOS/Linux 上的真实数据库读取。GitHub Actions 使用 Node.js 22，在 Windows/Ubuntu 上仅运行虚构数据测试；CI 通过不代表已验证真实数据库访问。
 
 ```powershell
 node --check scripts/export.cjs

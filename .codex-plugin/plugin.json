@@ -1,6 +1,6 @@
 {
   "name": "yuewen-export",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "description": "只读导出 Windows 作家助手本地小说、章节和原始数据快照。",
   "author": {
